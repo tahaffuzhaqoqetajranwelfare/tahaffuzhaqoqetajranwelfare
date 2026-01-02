@@ -7,9 +7,38 @@
     body {
       font-family: Arial, sans-serif;
       background-color: #2ecc71; /* Green background */
-      color: white;              /* Text golden */
-      text-align: center;         /* Center text */
+      color: gold;               /* Text golden */
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #27ae60;
       padding: 20px;
+      box-shadow: 0 4px 6px #00000050;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      color: gold;
+    }
+
+    nav {
+      margin: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      color: gold;
     }
 
     .card {
@@ -18,7 +47,7 @@
       color: black;
       padding: 20px;
       border-radius: 10px;
-      margin: 20px auto;
+      margin: 30px auto;
       box-shadow: 0 0 10px #ccc;
       text-align: left;
     }
@@ -28,6 +57,7 @@
       font-size: 18px;
       text-align: center;
       margin-bottom: 10px;
+      color: gold;
     }
 
     .verified {
@@ -38,29 +68,22 @@
 </head>
 <body>
 
-  <!-- Heading -->
-  <h1>TAHAFFUZ HAQOQ -E- TAJRAN WELFARE</h1>
+  <header>
+    <h1>TAHAFFUZ HAQOQ -E- TAJRAN WELFARE</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="posts.html">Posts</a>
+    </nav>
+  </header>
 
-  <!-- Member Card -->
   <div class="card" id="card">
-    Loading...
+    Loading member info...
   </div>
 
-  <!-- Member Card Script -->
   <script>
     const data = {
-      "123": {
-        name: "Ali Ahmed",
-        father: "Ahmed Khan",
-        member: "123",
-        status: "Active"
-      },
-      "124": {
-        name: "Usman Raza",
-        father: "Raza Ali",
-        member: "124",
-        status: "Active"
-      }
+      "123": {name: "Ali Ahmed", father: "Ahmed Khan", member: "123", status: "Active"},
+      "124": {name: "Usman Raza", father: "Raza Ali", member: "124", status: "Active"}
     };
 
     const params = new URLSearchParams(window.location.search);
