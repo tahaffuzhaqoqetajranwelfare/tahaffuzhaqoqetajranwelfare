@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TAHAFFUZ HAQUQE TAJRAN</title>
+  <title>TAHAFFUZ HAQOQ -E- TAJRAN WELFARE</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
-      font-family: Arial;
-      background: #f2f2f2;
+      font-family: Arial, sans-serif;
+      background-color: #2ecc71; /* Green background */
+      color: white;              /* Text golden */
+      text-align: center;         /* Center text */
       padding: 20px;
     }
+
     .card {
       max-width: 350px;
       background: white;
+      color: black;
       padding: 20px;
       border-radius: 10px;
-      margin: auto;
+      margin: 20px auto;
       box-shadow: 0 0 10px #ccc;
-      text-align: center;
+      text-align: left;
     }
+
     .logo {
       font-weight: bold;
       font-size: 18px;
+      text-align: center;
+      margin-bottom: 10px;
     }
+
     .verified {
       color: green;
       font-weight: bold;
@@ -30,45 +38,49 @@
 </head>
 <body>
 
-<div class="card" id="card">
-  Loading...
-</div>
+  <!-- Heading -->
+  <h1>TAHAFFUZ HAQOQ -E- TAJRAN WELFARE</h1>
 
-<script>
-  const data = {
-    "123": {
-      name: "Ali Ahmed",
-      father: "Ahmed Khan",
-      member: "123",
-      status: "Active"
-    },
-    "124": {
-      name: "Usman Raza",
-      father: "Raza Ali",
-      member: "124",
-      status: "Active"
+  <!-- Member Card -->
+  <div class="card" id="card">
+    Loading...
+  </div>
+
+  <!-- Member Card Script -->
+  <script>
+    const data = {
+      "123": {
+        name: "Ali Ahmed",
+        father: "Ahmed Khan",
+        member: "123",
+        status: "Active"
+      },
+      "124": {
+        name: "Usman Raza",
+        father: "Raza Ali",
+        member: "124",
+        status: "Active"
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    const card = document.getElementById("card");
+
+    if (data[id]) {
+      card.innerHTML = `
+        <div class="logo">TAHAFFUZ HAQOQ -E- TAJRAN WELFARE</div>
+        <hr>
+        <p><b>Name:</b> ${data[id].name}</p>
+        <p><b>Father:</b> ${data[id].father}</p>
+        <p><b>Member ID:</b> ${data[id].member}</p>
+        <p class="verified">Status: ${data[id].status}</p>
+      `;
+    } else {
+      card.innerHTML = "Scan your QR code to view your card.";
     }
-  };
-
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
-
-  const card = document.getElementById("card");
-
-  if (data[id]) {
-    card.innerHTML = `
-      <div class="logo">TAHAFFUZ HAQUQE TAJRAN</div>
-      <hr>
-      <p><b>Name:</b> ${data[id].name}</p>
-      <p><b>Father:</b> ${data[id].father}</p>
-      <p><b>Member ID:</b> ${data[id].member}</p>
-      <p class="verified">Status: ${data[id].status}</p>
-    `;
-  } else {
-    card.innerHTML = "Invalid or missing QR code";
-  }
-</script>
+  </script>
 
 </body>
 </html>
-Add member card page
