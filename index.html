@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TAHAFFUZ HAQUQE TAJRAN</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial;
+      background: #f2f2f2;
+      padding: 20px;
+    }
+    .card {
+      max-width: 350px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin: auto;
+      box-shadow: 0 0 10px #ccc;
+      text-align: center;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .verified {
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card" id="card">
+  Loading...
+</div>
+
+<script>
+  const data = {
+    "123": {
+      name: "Ali Ahmed",
+      father: "Ahmed Khan",
+      member: "123",
+      status: "Active"
+    },
+    "124": {
+      name: "Usman Raza",
+      father: "Raza Ali",
+      member: "124",
+      status: "Active"
+    }
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+
+  const card = document.getElementById("card");
+
+  if (data[id]) {
+    card.innerHTML = `
+      <div class="logo">TAHAFFUZ HAQUQE TAJRAN</div>
+      <hr>
+      <p><b>Name:</b> ${data[id].name}</p>
+      <p><b>Father:</b> ${data[id].father}</p>
+      <p><b>Member ID:</b> ${data[id].member}</p>
+      <p class="verified">Status: ${data[id].status}</p>
+    `;
+  } else {
+    card.innerHTML = "Invalid or missing QR code";
+  }
+</script>
+
+</body>
+</html>
+Add member card page
